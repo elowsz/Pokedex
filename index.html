@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mini Pokédex</title>
+  <meta name="description" content="Pokédex simples e responsiva usando PokéAPI" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Mini Pokédex</h1>
+    <form id="search-form" autocomplete="off" aria-label="Buscar Pokémon">
+      <input id="search-input" name="q" type="text" placeholder="nome ou ID (ex: pikachu ou 25)" required />
+      <button type="submit" aria-label="Buscar">Buscar</button>
+    </form>
+  </header>
+
+  <main id="app">
+    <section id="card" class="card hidden" aria-live="polite"></section>
+    <section id="history" class="history">
+      <h2>Buscas recentes</h2>
+      <ul id="history-list"></ul>
+      <button id="clear-history" class="secondary">Limpar histórico</button>
+    </section>
+    <section class="tips">
+      <p>Dica: você pode pesquisar por <strong>nome</strong> (bulbasaur) ou <strong>ID</strong> (1).</p>
+      <p>API usada: <a href="https://pokeapi.co/" target="_blank" rel="noopener">PokéAPI</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Feito por você ✨ • Sem dependências • Responsivo</small>
+  </footer>
+
+  <template id="card-template">
+    <article>
+      <div class="media">
+        <img id="poke-img" alt="" />
+      </div>
+      <div class="content">
+        <h2 id="poke-name"></h2>
+        <p class="badge" id="poke-id"></p>
+
+        <div class="chips" id="poke-types"></div>
+
+        <h3>Habilidades</h3>
+        <ul id="poke-abilities" class="list"></ul>
+
+        <h3>Atributos</h3>
+        <div id="poke-stats" class="stats"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
